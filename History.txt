@@ -1,1 +1,1 @@
-2012-02-07 : initial release, full binding to isk 0.9.3
+0.9.0 : 2012-02-07  initial release, full binding to isk 0.9.3

@@ -8,5 +8,5 @@ Gem::Specification.new do |s|
   s.email       = 'cvigny@gmail.com'
   s.files       = ["lib/iskr.rb"]
   s.homepage    =
-    'http://rubygems.org/gems/iskr'
+    'https://github.com/tophe/iskr'
 end
