@@ -53,7 +53,7 @@ class Isk
     @server.call("queryImgPath",db_id,path,numres,sketch,fast)
   end
   
-  def add_img_blog(id,data)
+  def add_img_blob(id,data)
     @server.call("addImgBlob",db_id, id, data)
   end
   
@@ -104,7 +104,7 @@ class Isk
     @server.call("getImgDimensions",db_id,id)
   end
    
-  def calc_img_avg_ldif(id1,id2)
+  def calc_img_avgl_diff(id1,id2)
     @server.call("calcImgAvglDiff",db_id,id1,id2)
   end
    
@@ -113,7 +113,7 @@ class Isk
   end
    
   def get_img_avgl(id)
-    @server.call("calcImgDiff",db_id,id)
+    @server.call("getImgAvgl",db_id,id)
   end
 
   def get_db_list
@@ -126,11 +126,11 @@ class Isk
   end
   
   def get_db_detailed_list
-    @server.call("getDbDetailedList",db_id)
+    @server.call("getDbDetailedList")
   end
     
   def save_all_dbs_as(path)
-    @server.call("saveAllDbsAs",db_id)
+    @server.call("saveAllDbsAs",path)
   end
     
   def add_keyword_img(id,keyword)
@@ -157,7 +157,7 @@ class Isk
   end
   
   def query_img_id_fast_keywords(id,numers,kwjointype,keywords)
-    @server.call("queryImgIDFastKeywords",db_id,numres,kwjointype,keywords)
+    @server.call("queryImgIDFastKeywords",db_id,id,numres,kwjointype,keywords)
   end
     #  queryImgIDKeywords(dbId, imgId, numres, kwJoinType, keywords)
   #	 
@@ -177,7 +177,7 @@ class Isk
     
   
   def query_img_id_keywords(id,numers,kwjointype,keywords)
-    @server.call("queryImgIDKeywords",db_id,numres,kwjointype,keywords)
+    @server.call("queryImgIDKeywords",db_id,id,numres,kwjointype,keywords)
   end
   
   #mostPopularKeywords(dbId, imgs, excludedKwds, count, mode)
@@ -221,7 +221,7 @@ class Isk
   #Returns: boolean
   #    true if image id exists     
   def add_keywords_img(id,hashes)
-    @server.call("addKeywordsImg",db_id,hashes)
+    @server.call("addKeywordsImg",db_id,id,hashes)
   end
     
   def add_dir(path,recurse)
@@ -242,11 +242,11 @@ class Isk
   end
     
   def remove_db()
-    @server.call("removeDb")
+    @server.call("removeDb",db_id)
   end
   
   
-  def get_global_server_stat
+  def get_global_server_stats
     @server.call("getGlobalServerStats")
   end
   
@@ -257,10 +257,4 @@ class Isk
   def get_isk_log(window=30)
     @server.call("getIskLog",window)
   end
-  
-  
-  
-
-
-  
 end
